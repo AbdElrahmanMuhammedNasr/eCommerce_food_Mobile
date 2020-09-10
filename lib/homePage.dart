@@ -141,8 +141,8 @@ class _HomePageState extends State<HomePage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              recomm(context, 'p3', 'Pizza'),
-                              recomm(context, 'p3', 'Pizza'),
+                              recomm(context, 'p9', 'Pizza'),
+                              recomm(context, 'p9', 'Pizza'),
                             ],
                           )
                         ],
@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> {
 Widget cat(image) {
   return Container(
     width: 70,
-    margin: EdgeInsets.all(5),
+    margin: EdgeInsets.all(3),
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(20),
@@ -210,8 +210,7 @@ Widget recomm(context, image, name) {
           child: InkWell(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => new ProductDetails(),
-              ));
+                  builder: (context) => new ProductDetails()));
             },
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
@@ -235,7 +234,7 @@ Widget recomm(context, image, name) {
           "20 EGY",
           style: TextStyle(
               fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Raleway'),
-        )
+        ),
       ],
     ),
   );

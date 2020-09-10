@@ -1,3 +1,4 @@
+import 'package:ecommercefood/Notifications.dart';
 import 'package:ecommercefood/Share/ColorsGlopal.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +48,7 @@ class _TopBarState extends State<TopBar> {
                 color: blueColor,
               ),
               onPressed: () {
-                print('object');
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  new Notifications(),));
               }),
         ],
       ),

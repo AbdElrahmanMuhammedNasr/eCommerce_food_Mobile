@@ -9,6 +9,11 @@ class ProductDetails extends StatefulWidget {
 
 class _ProductDetailsState extends State<ProductDetails> {
   int numberOfProduct = 1;
+  int price = 200;
+  List<String> size = ['Small', "Median", "Large"];
+  double productSize = 70;
+  String sizeName = "Small";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,8 +36,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                   style: TextStyle(fontSize: 20, fontFamily: 'Raleway'),
                 ),
                 CircleAvatar(
-                  radius: 120,
-                  backgroundImage: AssetImage("images/p3.jpg"),
+                  radius: productSize,
+                  backgroundColor: Colors.white.withOpacity(0),
+                  backgroundImage: AssetImage("images/p3.png"),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -46,6 +52,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             if (numberOfProduct <= 1) {
                             } else {
                               numberOfProduct--;
+                              price = (price - 200).round();
                             }
                           });
                         }),
@@ -60,6 +67,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             if (numberOfProduct > 5) {
                             } else {
                               numberOfProduct++;
+                              price = (price + 200).round();
                             }
                           });
                         }),
@@ -74,10 +82,33 @@ class _ProductDetailsState extends State<ProductDetails> {
                     Column(
                       children: [
                         Text("Size"),
-                        Text(
-                          "Large",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                        Container(
+                          child: DropdownButton(
+                            hint: Text("${sizeName}"),
+                            items: size
+                                .map((e) => DropdownMenuItem(
+                                      value: e,
+                                      child: Text('${e}'),
+                                    ))
+                                .toList(),
+                            onChanged: (Value) {
+                              setState(() {
+                                if (Value == "Small") {
+                                  sizeName = Value;
+                                  productSize = 70;
+                                  price = price;
+                                } else if (Value == "Median") {
+                                  sizeName = Value;
+                                  productSize = 100;
+                                  price = price * 2;
+                                } else if (Value == "Large") {
+                                  sizeName = Value;
+                                  productSize = 130;
+                                  price = price * 3;
+                                }
+                              });
+                            },
+                          ),
                         ),
                       ],
                     ),
@@ -95,7 +126,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       children: [
                         Text("Price"),
                         Text(
-                          "200",
+                          "${price}",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
