@@ -1,6 +1,7 @@
 import 'package:ecommercefood/Share/bottomBar.dart';
 import 'package:ecommercefood/Share/topBar.dart';
 import 'package:ecommercefood/homePage.dart';
+import 'package:ecommercefood/productDetails.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,13 +22,7 @@ class _MyAppState extends State<MyApp> {
         body: SafeArea(
           child: Container(
             margin: EdgeInsets.all(10),
-            child: Column(
-              children: [
-                Expanded(flex: 0,child: new TopBar(),),
-                Expanded(flex: 9,child: new HomePage(),),
-                Expanded(flex: 0,child: new BottomBar(),),
-              ],
-            ),
+            child: new HomePage(),
           ),
         ),
       ),

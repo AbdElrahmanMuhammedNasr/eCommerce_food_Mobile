@@ -18,6 +18,7 @@ class _BottomBarState extends State<BottomBar> {
     }
 
     return Container(
+      height: 35,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
